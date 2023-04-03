@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GithubUser</string>
+    <string name="username">Username</string>
+    <string name="search">Search Here</string>
+    <string name="search_hint">Please input username</string>
+    <string name="d_following">%d\nFollowing</string>
+    <string name="d_follower">%d\nFollowers</string>
+    <string name="name">Name</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+</resources>
