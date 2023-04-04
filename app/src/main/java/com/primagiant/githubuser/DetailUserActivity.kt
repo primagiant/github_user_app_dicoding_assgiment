@@ -19,22 +19,13 @@ class DetailUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailUserBinding
     private val userViewModel: UserViewModel by viewModels()
 
-    companion object {
-        var USERNAME = "arif"
-
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.follower, R.string.following
-        )
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetailUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Detail Github User"
+        supportActionBar?.title = getString(R.string.detail_user_title)
 
         val username = intent?.getStringExtra(USERNAME)
         if (username != null) {
@@ -61,34 +52,44 @@ class DetailUserActivity : AppCompatActivity() {
     }
 
     private fun getDetailUser(detailUser: DetailUserResponse?) {
-        val cFollowing =
-            this@DetailUserActivity.resources.getString(R.string.d_following, detailUser?.following)
-        val cFollower =
-            this@DetailUserActivity.resources.getString(R.string.d_follower, detailUser?.followers)
-
-        binding.tvUsername.text = detailUser?.login
-        binding.tvName.text = detailUser?.name
-        binding.tvFollower.text = cFollower
-        binding.tvFollowing.text = cFollowing
-        Glide.with(this).load(detailUser?.avatarUrl).into(binding.avatarImg)
+        binding.apply {
+            tvUsername.text = detailUser?.login
+            tvName.text = detailUser?.name
+            tvFollower.text = this@DetailUserActivity.resources.getString(R.string.d_following, detailUser?.following)
+            tvFollowing.text = this@DetailUserActivity.resources.getString(R.string.d_follower, detailUser?.followers)
+            Glide.with(this@DetailUserActivity).load(detailUser?.avatarUrl).into(avatarImg)
+        }
     }
 
     private fun showLoading(isLoading: Boolean) {
         if (!isLoading) {
-            binding.progressBar.visibility = View.GONE
-            binding.tvUsername.visibility = View.VISIBLE
-            binding.tvName.visibility = View.VISIBLE
-            binding.tvFollowing.visibility = View.VISIBLE
-            binding.tvFollower.visibility = View.VISIBLE
-            binding.avatarImg.visibility = View.VISIBLE
+            binding.apply {
+                progressBar.visibility = View.GONE
+                tvUsername.visibility = View.VISIBLE
+                tvName.visibility = View.VISIBLE
+                tvFollowing.visibility = View.VISIBLE
+                tvFollower.visibility = View.VISIBLE
+                avatarImg.visibility = View.VISIBLE
+            }
         } else {
-            binding.progressBar.visibility = View.VISIBLE
-            binding.tvUsername.visibility = View.GONE
-            binding.tvName.visibility = View.GONE
-            binding.tvFollowing.visibility = View.GONE
-            binding.tvFollower.visibility = View.GONE
-            binding.avatarImg.visibility = View.GONE
+            binding.apply {
+                progressBar.visibility = View.VISIBLE
+                tvUsername.visibility = View.GONE
+                tvName.visibility = View.GONE
+                tvFollowing.visibility = View.GONE
+                tvFollower.visibility = View.GONE
+                avatarImg.visibility = View.GONE
+            }
         }
+    }
+
+    companion object {
+        var USERNAME = "arif"
+
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.follower, R.string.following
+        )
     }
 
 }

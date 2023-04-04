@@ -13,7 +13,7 @@ class ApiConfig {
                 val req = chain.request()
 
                 val requestHeaders = req.newBuilder()
-                    .addHeader("Authorization", "Your Personal Token")
+                    .addHeader("Authorization", "")
                     .build()
                 chain.proceed(requestHeaders)
             }

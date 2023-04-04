@@ -8,4 +8,5 @@
     <string name="name">Name</string>
     <string name="follower">Follower</string>
     <string name="following">Following</string>
+    <string name="detail_user_title">Detail Github User</string>
 </resources>
