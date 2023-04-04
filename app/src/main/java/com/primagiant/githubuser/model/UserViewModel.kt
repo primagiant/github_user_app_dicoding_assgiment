@@ -54,7 +54,7 @@ class UserViewModel : ViewModel() {
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 _isLoading.value = false
                 // TODO: Convert to Toast
-                Log.e(TAG, "onFailure: ${t.message.toString()}")
+                Log.e(TAG, "onFailure: ${t.message.toString()} : find user")
             }
 
         })

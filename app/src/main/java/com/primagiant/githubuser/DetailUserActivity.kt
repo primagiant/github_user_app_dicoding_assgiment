@@ -52,7 +52,7 @@ class DetailUserActivity : AppCompatActivity() {
     }
 
     private fun getDetailUser(detailUser: DetailUserResponse?) {
-        binding.apply {
+        binding.incDetailUser.apply {
             tvUsername.text = detailUser?.login
             tvName.text = detailUser?.name
             tvFollower.text = this@DetailUserActivity.resources.getString(R.string.d_following, detailUser?.following)
@@ -63,7 +63,7 @@ class DetailUserActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         if (!isLoading) {
-            binding.apply {
+            binding.incDetailUser.apply {
                 progressBar.visibility = View.GONE
                 tvUsername.visibility = View.VISIBLE
                 tvName.visibility = View.VISIBLE
@@ -72,7 +72,7 @@ class DetailUserActivity : AppCompatActivity() {
                 avatarImg.visibility = View.VISIBLE
             }
         } else {
-            binding.apply {
+            binding.incDetailUser.apply {
                 progressBar.visibility = View.VISIBLE
                 tvUsername.visibility = View.GONE
                 tvName.visibility = View.GONE
