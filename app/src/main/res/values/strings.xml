@@ -9,4 +9,6 @@
     <string name="follower">Follower</string>
     <string name="following">Following</string>
     <string name="detail_user_title">Detail Github User</string>
+    <string name="favorite">Favorite</string>
+    <string name="change_theme">Change Theme</string>
 </resources>
