@@ -1,6 +1,5 @@
 package com.primagiant.githubuser.data.remote.api
 
-import com.primagiant.githubuser.data.local.entity.FavoriteUserEntity
 import com.primagiant.githubuser.data.remote.response.DetailUserResponse
 import com.primagiant.githubuser.data.remote.response.ItemsItem
 import com.primagiant.githubuser.data.remote.response.UserResponse

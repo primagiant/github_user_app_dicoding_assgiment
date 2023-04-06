@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.primagiant.githubuser.ui.adapter.FollowAdapter
+import com.primagiant.githubuser.data.remote.response.ItemsItem
 import com.primagiant.githubuser.databinding.FragmentFollowBinding
 import com.primagiant.githubuser.model.UserViewModel
-import com.primagiant.githubuser.data.remote.response.ItemsItem
+import com.primagiant.githubuser.ui.adapter.FollowAdapter
 
 class FollowFragment : Fragment() {
 
@@ -24,8 +24,7 @@ class FollowFragment : Fragment() {
     private val userViewModel: UserViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFollowBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,7 +43,7 @@ class FollowFragment : Fragment() {
         val itemDecoration = DividerItemDecoration(requireActivity(), layoutManager.orientation)
         binding.rvFollow.addItemDecoration(itemDecoration)
 
-        if (position == 1){
+        if (position == 1) {
             viewFollower()
         } else {
             viewFollowing()
@@ -74,7 +73,7 @@ class FollowFragment : Fragment() {
         }
     }
 
-    private fun setData(data : List<ItemsItem>) {
+    private fun setData(data: List<ItemsItem>) {
         val adapter = FollowAdapter(data, requireActivity())
         binding.rvFollow.adapter = adapter
     }
@@ -84,7 +83,7 @@ class FollowFragment : Fragment() {
         _binding = null
     }
 
-    companion object{
+    companion object {
         const val ARG_USERNAME = "param1"
         const val ARG_POSITION = "param2"
     }

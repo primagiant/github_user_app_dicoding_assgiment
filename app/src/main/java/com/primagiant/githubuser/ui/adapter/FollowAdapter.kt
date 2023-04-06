@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.primagiant.githubuser.databinding.ItemUserBinding
 import com.primagiant.githubuser.data.remote.response.ItemsItem
+import com.primagiant.githubuser.databinding.ItemUserBinding
 
 class FollowAdapter(private val data: List<ItemsItem>, private val context: Context) :
     RecyclerView.Adapter<FollowAdapter.ViewHolder>() {

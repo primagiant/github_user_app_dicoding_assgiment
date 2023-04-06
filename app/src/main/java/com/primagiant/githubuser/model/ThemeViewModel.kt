@@ -8,14 +8,14 @@ import com.primagiant.githubuser.data.local.dataStore.SettingPreferences
 import kotlinx.coroutines.launch
 
 class ThemeViewModel(
-    private val pref : SettingPreferences
+    private val pref: SettingPreferences
 ) : ViewModel() {
 
-    fun getThemeSettings() : LiveData<Boolean> {
+    fun getThemeSettings(): LiveData<Boolean> {
         return pref.getThemeSetting().asLiveData()
     }
 
-    fun saveThemeSetting(isDarkMode : Boolean) {
+    fun saveThemeSetting(isDarkMode: Boolean) {
         viewModelScope.launch {
             pref.saveThemeSetting(isDarkMode)
         }

@@ -26,6 +26,7 @@ import com.primagiant.githubuser.ui.DetailUserActivity
 import com.primagiant.githubuser.ui.adapter.UserListAdapter
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

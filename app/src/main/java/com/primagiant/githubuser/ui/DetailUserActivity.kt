@@ -13,9 +13,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.primagiant.githubuser.R
 import com.primagiant.githubuser.data.remote.response.DetailUserResponse
 import com.primagiant.githubuser.databinding.ActivityDetailUserBinding
+import com.primagiant.githubuser.model.FavoriteUserModelFactory
 import com.primagiant.githubuser.model.FavoriteUserViewModel
 import com.primagiant.githubuser.model.UserViewModel
-import com.primagiant.githubuser.model.FavoriteUserModelFactory
 import com.primagiant.githubuser.ui.adapter.DetailUserPagerAdapter
 
 class DetailUserActivity : AppCompatActivity() {
@@ -77,12 +77,10 @@ class DetailUserActivity : AppCompatActivity() {
             tvUsername.text = detailUser?.login
             tvName.text = detailUser?.name
             tvFollower.text = this@DetailUserActivity.resources.getString(
-                R.string.d_following,
-                detailUser?.following
+                R.string.d_following, detailUser?.following
             )
             tvFollowing.text = this@DetailUserActivity.resources.getString(
-                R.string.d_follower,
-                detailUser?.followers
+                R.string.d_follower, detailUser?.followers
             )
             Glide.with(this@DetailUserActivity).load(detailUser?.avatarUrl).into(avatarImg)
         }
@@ -94,16 +92,14 @@ class DetailUserActivity : AppCompatActivity() {
                 favoriteUserViewModel.deleteFromFavorite(username)
                 binding.addToFav.setImageDrawable(
                     ContextCompat.getDrawable(
-                        binding.addToFav.context,
-                        R.drawable.ic_baseline_favorite_border_24
+                        binding.addToFav.context, R.drawable.ic_baseline_favorite_border_24
                     )
                 )
             } else {
                 favoriteUserViewModel.insertToFavorite(username, avatarUrl)
                 binding.addToFav.setImageDrawable(
                     ContextCompat.getDrawable(
-                        binding.addToFav.context,
-                        R.drawable.ic_baseline_favorite_24
+                        binding.addToFav.context, R.drawable.ic_baseline_favorite_24
                     )
                 )
             }
@@ -114,15 +110,13 @@ class DetailUserActivity : AppCompatActivity() {
         if (isFavorite) {
             binding.addToFav.setImageDrawable(
                 ContextCompat.getDrawable(
-                    binding.addToFav.context,
-                    R.drawable.ic_baseline_favorite_24
+                    binding.addToFav.context, R.drawable.ic_baseline_favorite_24
                 )
             )
         } else {
             binding.addToFav.setImageDrawable(
                 ContextCompat.getDrawable(
-                    binding.addToFav.context,
-                    R.drawable.ic_baseline_favorite_border_24
+                    binding.addToFav.context, R.drawable.ic_baseline_favorite_border_24
                 )
             )
         }

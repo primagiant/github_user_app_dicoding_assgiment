@@ -1,6 +1,5 @@
 package com.primagiant.githubuser.model
 
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import com.primagiant.githubuser.data.FavoriteUserRepository
 

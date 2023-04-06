@@ -10,7 +10,7 @@ class FavoriteUserModelFactory private constructor(
     private val favoriteUserRepository: FavoriteUserRepository
 ) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
-    override fun <T: ViewModel> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(FavoriteUserViewModel::class.java)) {
             return FavoriteUserViewModel(favoriteUserRepository) as T
         }

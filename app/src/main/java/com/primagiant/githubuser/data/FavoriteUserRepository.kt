@@ -4,11 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.primagiant.githubuser.data.local.database.FavoriteUserDAO
 import com.primagiant.githubuser.data.local.entity.FavoriteUserEntity
-import com.primagiant.githubuser.data.remote.api.ApiService
 import com.primagiant.githubuser.utils.AppExecutors
 
 class FavoriteUserRepository private constructor(
-    private val apiService: ApiService,
     private val favoriteUserDAO: FavoriteUserDAO,
     private val appExecutors: AppExecutors
 ) {
@@ -51,12 +49,11 @@ class FavoriteUserRepository private constructor(
         @Volatile
         private var instance: FavoriteUserRepository? = null
         fun getInstance(
-            apiService: ApiService,
             favoriteUserDAO: FavoriteUserDAO,
             appExecutors: AppExecutors
         ): FavoriteUserRepository =
             instance ?: synchronized(this) {
-                instance ?: FavoriteUserRepository(apiService, favoriteUserDAO, appExecutors)
+                instance ?: FavoriteUserRepository(favoriteUserDAO, appExecutors)
             }.also { instance = it }
     }
 

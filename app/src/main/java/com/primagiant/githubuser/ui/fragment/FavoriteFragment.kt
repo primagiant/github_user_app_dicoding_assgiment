@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.primagiant.githubuser.data.Result
 import com.primagiant.githubuser.data.local.entity.FavoriteUserEntity
 import com.primagiant.githubuser.databinding.FragmentHomeBinding
-import com.primagiant.githubuser.model.FavoriteUserViewModel
 import com.primagiant.githubuser.model.FavoriteUserModelFactory
+import com.primagiant.githubuser.model.FavoriteUserViewModel
 import com.primagiant.githubuser.ui.DetailUserActivity
 import com.primagiant.githubuser.ui.adapter.FavoriteUserAdapter
 
