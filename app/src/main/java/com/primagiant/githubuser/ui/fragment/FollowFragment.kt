@@ -1,4 +1,4 @@
-package com.primagiant.githubuser.fragment
+package com.primagiant.githubuser.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.primagiant.githubuser.adapter.FollowAdapter
+import com.primagiant.githubuser.ui.adapter.FollowAdapter
 import com.primagiant.githubuser.databinding.FragmentFollowBinding
 import com.primagiant.githubuser.model.UserViewModel
-import com.primagiant.githubuser.response.ItemsItem
+import com.primagiant.githubuser.data.remote.response.ItemsItem
 
 class FollowFragment : Fragment() {
 

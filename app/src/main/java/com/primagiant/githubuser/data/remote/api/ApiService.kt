@@ -1,8 +1,9 @@
-package com.primagiant.githubuser.service
+package com.primagiant.githubuser.data.remote.api
 
-import com.primagiant.githubuser.response.DetailUserResponse
-import com.primagiant.githubuser.response.ItemsItem
-import com.primagiant.githubuser.response.UserResponse
+import com.primagiant.githubuser.data.local.entity.FavoriteUserEntity
+import com.primagiant.githubuser.data.remote.response.DetailUserResponse
+import com.primagiant.githubuser.data.remote.response.ItemsItem
+import com.primagiant.githubuser.data.remote.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.*
 

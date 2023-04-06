@@ -2,7 +2,7 @@ package com.primagiant.githubuser
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.primagiant.githubuser.fragment.HomeFragment
+import com.primagiant.githubuser.ui.fragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 

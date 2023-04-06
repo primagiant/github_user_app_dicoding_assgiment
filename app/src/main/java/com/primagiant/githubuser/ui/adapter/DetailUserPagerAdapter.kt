@@ -1,10 +1,10 @@
-package com.primagiant.githubuser.adapter
+package com.primagiant.githubuser.ui.adapter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.primagiant.githubuser.fragment.FollowFragment
+import com.primagiant.githubuser.ui.fragment.FollowFragment
 
 class DetailUserPagerAdapter(activity: AppCompatActivity, private var username: String?) : FragmentStateAdapter(activity) {
 

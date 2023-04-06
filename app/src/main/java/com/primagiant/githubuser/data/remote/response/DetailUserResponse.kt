@@ -1,4 +1,4 @@
-package com.primagiant.githubuser.response
+package com.primagiant.githubuser.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.primagiant.githubuser.service
+package com.primagiant.githubuser.data.remote.api
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

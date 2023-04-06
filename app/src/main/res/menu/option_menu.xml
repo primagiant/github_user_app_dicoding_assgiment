@@ -12,13 +12,11 @@
         android:id="@+id/fav"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="@string/favorite"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|ifRoom" />
 
     <item
         android:id="@+id/theme_change"
         android:icon="@drawable/ic_baseline_dark_mode_24"
         android:title="@string/change_theme"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="collapseActionView|ifRoom" />
+        app:showAsAction="collapseActionView" />
 </menu>

@@ -4,10 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.primagiant.githubuser.response.DetailUserResponse
-import com.primagiant.githubuser.response.ItemsItem
-import com.primagiant.githubuser.response.UserResponse
-import com.primagiant.githubuser.service.ApiConfig
+import com.primagiant.githubuser.data.remote.response.DetailUserResponse
+import com.primagiant.githubuser.data.remote.response.ItemsItem
+import com.primagiant.githubuser.data.remote.response.UserResponse
+import com.primagiant.githubuser.data.remote.api.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
