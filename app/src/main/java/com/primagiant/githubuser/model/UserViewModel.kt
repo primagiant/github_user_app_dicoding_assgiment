@@ -46,14 +46,12 @@ class UserViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _userList.value = response.body()?.items
                 } else {
-                    // TODO: Convert to Toast
                     Log.d(TAG, "OnFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 _isLoading.value = false
-                // TODO: Convert to Toast
                 Log.e(TAG, "onFailure: ${t.message.toString()} : find user")
             }
 
@@ -77,14 +75,12 @@ class UserViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _detailUser.value = response.body()
                 } else {
-                    // TODO: Convert to Toast
                     Log.d(TAG, "OnFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<DetailUserResponse>, t: Throwable) {
                 _isLoading.value = false
-                // TODO: Convert to Toast
                 Log.e(TAG, "OnFailure: ${t.message.toString()}")
             }
 
@@ -104,14 +100,12 @@ class UserViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _follower.value = response.body()
                 } else {
-                    // TODO: Convert to Toast
                     Log.d(TAG, "OnFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<List<ItemsItem>>, t: Throwable) {
                 _isLoading.value = false
-                // TODO: Convert to Toast
                 Log.e(TAG, "OnFailure: ${t.message.toString()}")
             }
 
@@ -131,14 +125,12 @@ class UserViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _following.value = response.body()
                 } else {
-                    // TODO: Convert to Toast
                     Log.d(TAG, "OnFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<List<ItemsItem>>, t: Throwable) {
                 _isLoading.value = false
-                // TODO: Convert to Toast
                 Log.e(TAG, "OnFailure: ${t.message.toString()}")
             }
 

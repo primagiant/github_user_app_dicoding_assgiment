@@ -6,13 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.primagiant.githubuser.R
 import com.primagiant.githubuser.data.Result
 import com.primagiant.githubuser.data.local.entity.FavoriteUserEntity
-import com.primagiant.githubuser.databinding.FragmentHomeBinding
+import com.primagiant.githubuser.databinding.FragmentFavoriteBinding
 import com.primagiant.githubuser.model.FavoriteUserModelFactory
 import com.primagiant.githubuser.model.FavoriteUserViewModel
 import com.primagiant.githubuser.ui.DetailUserActivity
@@ -20,7 +22,7 @@ import com.primagiant.githubuser.ui.adapter.FavoriteUserAdapter
 
 class FavoriteFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
     private val favoriteUserViewModel by viewModels<FavoriteUserViewModel> {
@@ -30,12 +32,15 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.favorite_user_title)
 
         favoriteUserViewModel.getFavoriteUser().observe(viewLifecycleOwner) { result ->
             if (result != null) {
@@ -73,7 +78,6 @@ class FavoriteFragment : Fragment() {
 
         adapter.setOnUserListClickCallback(object : FavoriteUserAdapter.OnFavUserListClickCallback {
             override fun onItemClicked(user: FavoriteUserEntity) {
-                // Fragment to Activity
                 val intent = Intent(requireActivity(), DetailUserActivity::class.java)
                 intent.putExtra(DetailUserActivity.USERNAME, user.username)
                 startActivity(intent)

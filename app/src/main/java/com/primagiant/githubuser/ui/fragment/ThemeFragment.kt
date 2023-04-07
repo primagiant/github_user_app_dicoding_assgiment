@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.primagiant.githubuser.R
 import com.primagiant.githubuser.data.local.dataStore.SettingPreferences
 import com.primagiant.githubuser.databinding.FragmentThemeBinding
 import com.primagiant.githubuser.model.ThemeModelFactory
@@ -33,6 +35,8 @@ class ThemeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.theme_setting_title)
 
         val pref = SettingPreferences.getInstance(requireContext().dataStore)
         val themeViewModel =

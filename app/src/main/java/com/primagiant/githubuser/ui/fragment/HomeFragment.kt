@@ -5,27 +5,18 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.primagiant.githubuser.R
-import com.primagiant.githubuser.data.local.dataStore.SettingPreferences
 import com.primagiant.githubuser.data.remote.response.ItemsItem
 import com.primagiant.githubuser.databinding.FragmentHomeBinding
-import com.primagiant.githubuser.model.ThemeModelFactory
-import com.primagiant.githubuser.model.ThemeViewModel
 import com.primagiant.githubuser.model.UserViewModel
 import com.primagiant.githubuser.ui.DetailUserActivity
 import com.primagiant.githubuser.ui.adapter.UserListAdapter
-
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class HomeFragment : Fragment() {
 
@@ -45,14 +36,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val pref = SettingPreferences.getInstance(requireContext().dataStore)
-        val themeViewModel =
-            ViewModelProvider(this, ThemeModelFactory(pref))[ThemeViewModel::class.java]
-
-
-        themeViewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkMode ->
-            toggleDarkMode(isDarkMode)
-        }
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
         val layoutManager = LinearLayoutManager(requireActivity())
         binding.rvUser.layoutManager = layoutManager
@@ -150,14 +134,6 @@ class HomeFragment : Fragment() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
-    private fun toggleDarkMode(isDarkMode: Boolean) {
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
     }
 
     override fun onDestroyView() {

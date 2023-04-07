@@ -7,8 +7,7 @@ import com.primagiant.githubuser.data.local.entity.FavoriteUserEntity
 import com.primagiant.githubuser.utils.AppExecutors
 
 class FavoriteUserRepository private constructor(
-    private val favoriteUserDAO: FavoriteUserDAO,
-    private val appExecutors: AppExecutors
+    private val favoriteUserDAO: FavoriteUserDAO, private val appExecutors: AppExecutors
 ) {
 
     private val result = MediatorLiveData<Result<List<FavoriteUserEntity>>>()
@@ -49,12 +48,10 @@ class FavoriteUserRepository private constructor(
         @Volatile
         private var instance: FavoriteUserRepository? = null
         fun getInstance(
-            favoriteUserDAO: FavoriteUserDAO,
-            appExecutors: AppExecutors
-        ): FavoriteUserRepository =
-            instance ?: synchronized(this) {
-                instance ?: FavoriteUserRepository(favoriteUserDAO, appExecutors)
-            }.also { instance = it }
+            favoriteUserDAO: FavoriteUserDAO, appExecutors: AppExecutors
+        ): FavoriteUserRepository = instance ?: synchronized(this) {
+            instance ?: FavoriteUserRepository(favoriteUserDAO, appExecutors)
+        }.also { instance = it }
     }
 
 }
